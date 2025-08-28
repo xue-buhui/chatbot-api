@@ -33,7 +33,7 @@ public class ZsxqApi implements IZsxqApi {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
         //查询all话题的1条提问
-        HttpGet httpGet = new HttpGet("https://api.zsxq.com/v2/groups/" + groupId + "/topics?scope=all&count=5");
+        HttpGet httpGet = new HttpGet("https://api.zsxq.com/v2/groups/" + groupId + "/topics?scope=all&count=1");
         // HttpGet httpGet =new HttpGet("https://api.zsxq.com/v2/topics/8852112411181512");
         httpGet.setHeader("cookie", cookie);
         httpGet.setHeader("Content-Type", "application/json; charset=UTF-8");

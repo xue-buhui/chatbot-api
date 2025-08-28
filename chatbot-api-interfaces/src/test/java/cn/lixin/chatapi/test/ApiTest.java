@@ -64,31 +64,5 @@ public class ApiTest {
         }
     }
 
-    @Test
-    public void test_chatGPT() throws IOException {
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-
-        //上传提问
-        HttpPost httpPost = new HttpPost("https://api.openai.com/v1/completions");
-        httpPost.setHeader("Content-Type", "application/json; charset=UTF-8");
-        httpPost.setHeader("Authorization", "Bearer YOUR_API_KEY");
-
-        String ques = "'{\n" +
-                "    \"model\": \"gpt-4.1\",\n" +
-                "    \"input\": \"Tell me a three sentence bedtime story about a unicorn.\"\n" +
-                "  }'";
-
-        StringEntity strEntity = new StringEntity(ques, ContentType.APPLICATION_JSON);
-        httpPost.setEntity(strEntity);
-
-        CloseableHttpResponse response = httpClient.execute(httpPost);
-        if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-            String res = EntityUtils.toString(response.getEntity());
-            System.out.println(res);
-        } else {
-            System.out.println(response.getStatusLine().getStatusCode());
-        }
-
-    }
 }
 

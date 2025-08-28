@@ -3,7 +3,7 @@ server:
 
 chatbot-api:
   groupID: 28885518425541
-  cookie:
+  cookie: zsxq_access_token=6159A583-DB4F-4838-9785-20220B620857_F630663093A90A4C; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22214511188154411%22%2C%22first_id%22%3A%22198e145459a80a-0cdad8bd5944328-4c657b58-2073600-198e145459b24f1%22%2C%22props%22%3A%7B%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMTk4ZTE0NTQ1OWE4MGEtMGNkYWQ4YmQ1OTQ0MzI4LTRjNjU3YjU4LTIwNzM2MDAtMTk4ZTE0NTQ1OWIyNGYxIiwiJGlkZW50aXR5X2xvZ2luX2lkIjoiMjE0NTExMTg4MTU0NDExIn0%3D%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%24identity_login_id%22%2C%22value%22%3A%22214511188154411%22%7D%7D; abtest_env=product
   apiKey: d4f0219dad934caaa0658f60fdc21f3f.9DQsIh8CEOQIO4MT
   model: glm-4.5
   role: user

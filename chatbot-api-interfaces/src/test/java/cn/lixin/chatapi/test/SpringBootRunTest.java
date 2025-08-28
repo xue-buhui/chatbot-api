@@ -38,13 +38,14 @@ public class SpringBootRunTest {
         logger.info("测试结果{}", JSON.toJSONString(topicAggregates));
 
         List<Topics> topicsList = topicAggregates.getResp_data().getTopics();
-        for (Topics topic : topicsList) {
-            String topicId = String.valueOf(topic.getTopic_id());
-            String question = topic.getTalk().getText();
-            String text = "回复1-5";
-            System.out.println(question);
-            zsxqApi.answer(groupId, cookie, topicId, text);
-        }
+
+        Topics topic = topicsList.get(0);
+        String topicId = topic.getTopic_id();
+        String question = topic.getTalk().getText();
+        String text = "回复1";
+        System.out.println(question);
+        zsxqApi.answer(groupId, cookie, topicId, text);
+
     }
 
     @Value("${chatbot-api.model}")
@@ -64,7 +65,7 @@ public class SpringBootRunTest {
     @Test
     public void run() throws IOException {
         TopicAggregates topicAggregates = zsxqApi.queryTopicId(groupId, cookie);
-        logger.info("测试结果{}", JSON.toJSONString(topicAggregates));
+        logger.info("查询结果{}", JSON.toJSONString(topicAggregates));
         List<Topics> topicsList = topicAggregates.getResp_data().getTopics();
         if (topicsList == null || topicsList.isEmpty()) {
             logger.info("未查询到话题！");
@@ -72,7 +73,7 @@ public class SpringBootRunTest {
         }
 
         Topics topic = topicsList.get(0);
-        String topicId = String.valueOf(topic.getTopic_id());
+        String topicId = topic.getTopic_id();
         String question = topic.getTalk().getText();
         String answer = openAI.getGPTAnswer(model, question);
 
