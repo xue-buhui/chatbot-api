@@ -8,6 +8,7 @@
     <artifactId>chatbot-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>chatbot-api-domain</module>
         <module>chatbot-api-application</module>
@@ -93,6 +94,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
     <build>
         <finalName>chatbot-api</finalName>
