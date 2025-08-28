@@ -7,49 +7,21 @@ public class AIAnswer
 {
     private String id;
 
-    private String object;
+    private String request_id;
 
-    private int created_at;
-
-    private String status;
-
-    private String error;
-
-    private String incomplete_details;
-
-    private String instructions;
-
-    private String max_output_tokens;
+    private int created;
 
     private String model;
 
-    private List<Output> output;
-
-    private boolean parallel_tool_calls;
-
-    private String previous_response_id;
-
-    private Reasoning reasoning;
-
-    private boolean store;
-
-    private int temperature;
-
-    private Text text;
-
-    private String tool_choice;
-
-    private List<String> tools;
-
-    private int top_p;
-
-    private String truncation;
+    private List<Choices> choices;
 
     private Usage usage;
 
-    private String user;
+    private List<Video_result> video_result;
 
-    private Metadata metadata;
+    private List<Web_search> web_search;
+
+    private List<Content_filter> content_filter;
 
     public void setId(String id){
         this.id = id;
@@ -57,47 +29,17 @@ public class AIAnswer
     public String getId(){
         return this.id;
     }
-    public void setObject(String object){
-        this.object = object;
+    public void setRequest_id(String request_id){
+        this.request_id = request_id;
     }
-    public String getObject(){
-        return this.object;
+    public String getRequest_id(){
+        return this.request_id;
     }
-    public void setCreated_at(int created_at){
-        this.created_at = created_at;
+    public void setCreated(int created){
+        this.created = created;
     }
-    public int getCreated_at(){
-        return this.created_at;
-    }
-    public void setStatus(String status){
-        this.status = status;
-    }
-    public String getStatus(){
-        return this.status;
-    }
-    public void setError(String error){
-        this.error = error;
-    }
-    public String getError(){
-        return this.error;
-    }
-    public void setIncomplete_details(String incomplete_details){
-        this.incomplete_details = incomplete_details;
-    }
-    public String getIncomplete_details(){
-        return this.incomplete_details;
-    }
-    public void setInstructions(String instructions){
-        this.instructions = instructions;
-    }
-    public String getInstructions(){
-        return this.instructions;
-    }
-    public void setMax_output_tokens(String max_output_tokens){
-        this.max_output_tokens = max_output_tokens;
-    }
-    public String getMax_output_tokens(){
-        return this.max_output_tokens;
+    public int getCreated(){
+        return this.created;
     }
     public void setModel(String model){
         this.model = model;
@@ -105,71 +47,11 @@ public class AIAnswer
     public String getModel(){
         return this.model;
     }
-    public void setOutput(List<Output> output){
-        this.output = output;
+    public void setChoices(List<Choices> choices){
+        this.choices = choices;
     }
-    public List<Output> getOutput(){
-        return this.output;
-    }
-    public void setParallel_tool_calls(boolean parallel_tool_calls){
-        this.parallel_tool_calls = parallel_tool_calls;
-    }
-    public boolean getParallel_tool_calls(){
-        return this.parallel_tool_calls;
-    }
-    public void setPrevious_response_id(String previous_response_id){
-        this.previous_response_id = previous_response_id;
-    }
-    public String getPrevious_response_id(){
-        return this.previous_response_id;
-    }
-    public void setReasoning(Reasoning reasoning){
-        this.reasoning = reasoning;
-    }
-    public Reasoning getReasoning(){
-        return this.reasoning;
-    }
-    public void setStore(boolean store){
-        this.store = store;
-    }
-    public boolean getStore(){
-        return this.store;
-    }
-    public void setTemperature(int temperature){
-        this.temperature = temperature;
-    }
-    public int getTemperature(){
-        return this.temperature;
-    }
-    public void setText(Text text){
-        this.text = text;
-    }
-    public Text getText(){
-        return this.text;
-    }
-    public void setTool_choice(String tool_choice){
-        this.tool_choice = tool_choice;
-    }
-    public String getTool_choice(){
-        return this.tool_choice;
-    }
-    public void setTools(List<String> tools){
-        this.tools = tools;
-    }
-    public List<String> getTools(){
-        return this.tools;
-    }
-    public void setTop_p(int top_p){
-        this.top_p = top_p;
-    }
-    public int getTop_p(){
-        return this.top_p;
-    }
-    public void setTruncation(String truncation){
-        this.truncation = truncation;
-    }
-    public String getTruncation(){
-        return this.truncation;
+    public List<Choices> getChoices(){
+        return this.choices;
     }
     public void setUsage(Usage usage){
         this.usage = usage;
@@ -177,16 +59,22 @@ public class AIAnswer
     public Usage getUsage(){
         return this.usage;
     }
-    public void setUser(String user){
-        this.user = user;
+    public void setVideo_result(List<Video_result> video_result){
+        this.video_result = video_result;
     }
-    public String getUser(){
-        return this.user;
+    public List<Video_result> getVideo_result(){
+        return this.video_result;
     }
-    public void setMetadata(Metadata metadata){
-        this.metadata = metadata;
+    public void setWeb_search(List<Web_search> web_search){
+        this.web_search = web_search;
     }
-    public Metadata getMetadata(){
-        return this.metadata;
+    public List<Web_search> getWeb_search(){
+        return this.web_search;
+    }
+    public void setContent_filter(List<Content_filter> content_filter){
+        this.content_filter = content_filter;
+    }
+    public List<Content_filter> getContent_filter(){
+        return this.content_filter;
     }
 }

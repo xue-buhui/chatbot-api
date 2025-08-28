@@ -26,7 +26,6 @@ public class SpringBootRunTest {
 
     @Value("${chatbot-api.groupID}")
     private String groupId;
-
     @Value("${chatbot-api.cookie}")
     private String cookie;
 
@@ -51,13 +50,34 @@ public class SpringBootRunTest {
     @Value("${chatbot-api.model}")
     private String model;
 
+
     @Resource
     private IOpenAI openAI;
 
     @Test
     public void test_openAI() throws IOException {
-        String answer = openAI.getGPTAnswer(model, "aa");
-        logger.info("GPT回答结果：{}",answer);
+        String answer = openAI.getGPTAnswer(model, "1+1=?");
+        logger.info("GPT回答结果：{}", answer);
+    }
+
+    //爬取+查询+上传
+    @Test
+    public void run() throws IOException {
+        TopicAggregates topicAggregates = zsxqApi.queryTopicId(groupId, cookie);
+        logger.info("测试结果{}", JSON.toJSONString(topicAggregates));
+        List<Topics> topicsList = topicAggregates.getResp_data().getTopics();
+        if (topicsList == null || topicsList.isEmpty()) {
+            logger.info("未查询到话题！");
+            return;
+        }
+
+        Topics topic = topicsList.get(0);
+        String topicId = String.valueOf(topic.getTopic_id());
+        String question = topic.getTalk().getText();
+        String answer = openAI.getGPTAnswer(model, question);
+
+        zsxqApi.answer(groupId, cookie, topicId, answer);
+        logger.info("问题：{} GPT回答结果：{}", question, answer);
     }
 }
 
